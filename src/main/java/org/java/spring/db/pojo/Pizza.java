@@ -1,5 +1,8 @@
 package org.java.spring.db.pojo;
 
+
+import java.util.List;
+
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
@@ -8,6 +11,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 
@@ -34,6 +38,9 @@ public class Pizza {
 	
 	@Positive(message = "Il prezzo deve essere maggiore di 0")
 	private double prezzo;
+	
+	@OneToMany(mappedBy = "pizza")
+	private List<Discount> discounts;
 	
 	public Pizza() {}
 	public Pizza(String nome, String descrizione, String urlFoto, double prezzo) {

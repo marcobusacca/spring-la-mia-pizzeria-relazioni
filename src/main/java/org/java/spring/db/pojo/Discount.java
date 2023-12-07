@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Discount {
@@ -21,6 +22,9 @@ public class Discount {
 	
 	@Column(length = 20)
 	private String titolo;
+	
+	@ManyToOne
+	private Pizza pizza;
 	
 	public Discount() { }
 	public Discount(LocalDate data_inizio, LocalDate data_fine, String titolo) {
