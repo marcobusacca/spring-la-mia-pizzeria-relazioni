@@ -23,6 +23,9 @@
 							<h3 th:text="${pizza.getNome()} + ' - ' + ${pizza.getPrezzoFormattato()}"></h3>
 							<p th:text="${pizza.getDescrizione()}" class="py-3"></p>
 						</div>
+						<div class="col-12 text-center my-3">
+							<a th:href="@{/pizzas/{pizzaId}/discount (pizzaId=${pizza.getId()})}" class="btn btn-success">Crea un'offerta speciale</a>
+						</div>
 					</div>
 				</div>
 			</main>

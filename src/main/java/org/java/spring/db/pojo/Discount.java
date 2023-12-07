@@ -28,7 +28,6 @@ public class Discount {
 	
 	public Discount() { }
 	public Discount(LocalDate data_inizio, LocalDate data_fine, String titolo) {
-		
 		setData_inizio(data_inizio);
 		setData_fine(data_fine);
 		setTitolo(titolo);
@@ -58,6 +57,7 @@ public class Discount {
 	public void setTitolo(String titolo) {
 		this.titolo = titolo;
 	}
+	
 	public Pizza getPizza() {
 		return pizza;
 	}
