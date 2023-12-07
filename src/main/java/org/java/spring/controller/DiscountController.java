@@ -4,10 +4,12 @@ import org.java.spring.db.pojo.Discount;
 import org.java.spring.db.pojo.Pizza;
 import org.java.spring.db.serv.DiscountService;
 import org.java.spring.db.serv.PizzaService;
+import org.java.spring.dto.DiscountDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -33,9 +35,16 @@ public class DiscountController {
 		
 		return "discount-form";
 	}
-	@PostMapping("/pizzas/discount")
-	public String storeDiscount() {
+	
+	@PostMapping("/pizzas/{id}/discount")
+	public String storeDiscount(@ModelAttribute DiscountDTO discountDTO, @PathVariable int id) {
 		
-		return "";
+		Pizza pizza = pizzaService.findById(id);
+		
+		Discount discount = new Discount(discountDTO.getData_inizio(), discountDTO.getData_fine(), discountDTO.getTitolo(), pizza);
+		
+		discountService.save(discount);
+		
+		return "redirect:/";
 	}
 }

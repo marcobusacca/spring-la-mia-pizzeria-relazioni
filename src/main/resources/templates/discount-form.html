@@ -19,11 +19,6 @@
 						<div class="col-12">
 							<div class="row">
 								<form th:object="${discount}" method="POST">
-									<div class="form-group mb-5">
-								  		<label for="titolo" class="my-2">Titolo</label>
-										<input th:field="*{titolo}" type="text" name="titolo" id="titolo" placeholder="Inserisci il titolo" class="form-control" th:errorClass="is-invalid" required>
-										<div th:replace="frags :: errorDiv('titolo')"></div>
-									</div>
 									<div class="form-group my-5">
 								  		<label for="data_inizio" class="my-2">Data inizio</label>
 										<input th:field="*{data_inizio}" type="date" name="data_inizio" id="data_inizio" placeholder="Inserisci la data di inizio" class="form-control" th:errorClass="is-invalid" required>
@@ -33,6 +28,11 @@
 								  		<label for="data_fine" class="my-2">Data fine</label>
 										<input th:field="*{data_fine}" type="date" name="data_fine" id="data_fine" placeholder="Inserisci la data di fine" class="form-control" th:errorClass="is-invalid" required>
 										<div th:replace="frags :: errorDiv('data_fine')"></div>
+									</div>
+									<div class="form-group mb-5">
+								  		<label for="titolo" class="my-2">Titolo</label>
+										<input th:field="*{titolo}" type="text" name="titolo" id="titolo" placeholder="Inserisci il titolo" class="form-control" th:errorClass="is-invalid" required>
+										<div th:replace="frags :: errorDiv('titolo')"></div>
 									</div>
 									<div class="col-12 text-center">
 										<button type="submit" class="btn btn-primary px-5">Invia</button>

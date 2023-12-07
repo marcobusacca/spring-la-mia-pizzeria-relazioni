@@ -27,10 +27,11 @@ public class Discount {
 	private Pizza pizza;
 	
 	public Discount() { }
-	public Discount(LocalDate data_inizio, LocalDate data_fine, String titolo) {
+	public Discount(LocalDate data_inizio, LocalDate data_fine, String titolo, Pizza pizza) {
 		setData_inizio(data_inizio);
 		setData_fine(data_fine);
 		setTitolo(titolo);
+		setPizza(pizza);
 	}
 	
 	public int getId() {
