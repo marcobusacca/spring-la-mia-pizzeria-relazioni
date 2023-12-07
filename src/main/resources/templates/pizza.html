@@ -15,6 +15,7 @@
 			<main>
 				<div class="container-fluid">
 					<div class="row p-5">
+						<div th:replace="frags :: homebutton"></div>
 						<div class="col-12 text-center my-3">
 							<img th:src="${pizza.getUrl_foto()}">
 						</div>
@@ -22,7 +23,6 @@
 							<h3 th:text="${pizza.getNome()} + ' - ' + ${pizza.getPrezzoFormattato()}"></h3>
 							<p th:text="${pizza.getDescrizione()}" class="py-3"></p>
 						</div>
-						<div th:replace="frags :: homebutton('Home')"></div>
 					</div>
 				</div>
 			</main>

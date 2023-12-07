@@ -15,11 +15,7 @@
 			<main>
 				<div class="container-fluid">
 					<div class="row justify-content-center p-5">
-						<div class="col-12 mb-5">
-							<a href="/">
-								<i class="fa-solid fa-circle-arrow-left fa-xl text-black"></i>
-							</a>
-						</div>
+						<div th:replace="frags :: homebutton"></div>
 						<div class="col-12">
 							<div class="row">
 								<form th:object="${pizza}" method="POST">

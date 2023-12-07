@@ -26,11 +26,11 @@
 		    </div>
 		</header>
 		
-		<div 
-			th:fragment="homebutton(title)"
-			class="col-12 text-center mt-5"
-			>
-			<a href="/" th:text="${title}" class="btn btn-primary mx-2 px-4"></a>
+		<div th:fragment="homebutton"
+		class="col-12 mb-5">
+			<a href="/">
+				<i class="fa-solid fa-circle-arrow-left fa-xl text-black"></i>
+			</a>
 		</div>
 		
 		<div th:fragment="errorDiv(field)" th:if="${#fields.hasErrors(field)}" class="invalid-feedback">
