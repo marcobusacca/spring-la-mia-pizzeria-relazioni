@@ -2,6 +2,7 @@ package org.java.spring.controller;
 
 import java.util.List;
 
+import org.java.spring.db.pojo.Discount;
 import org.java.spring.db.pojo.Pizza;
 import org.java.spring.db.serv.PizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,11 @@ public class PizzaController {
 		
 		Pizza pizza = pizzaService.findById(id);
 		
+		List<Discount> discounts = pizza.getDiscounts();
+		
 		model.addAttribute("pizza", pizza);
+		
+		model.addAttribute("discounts", discounts);
 		
 		return "pizza";
 	}

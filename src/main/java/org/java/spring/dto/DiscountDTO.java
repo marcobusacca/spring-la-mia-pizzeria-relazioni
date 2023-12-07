@@ -4,17 +4,10 @@ import java.time.LocalDate;
 
 public class DiscountDTO {
 
-	private int pizza_id;
 	private LocalDate data_inizio;
 	private LocalDate data_fine;
 	private String titolo;
 	
-	public int getPizza_id() {
-		return pizza_id;
-	}
-	public void setPizza_id(int pizza_id) {
-		this.pizza_id = pizza_id;
-	}
 	public LocalDate getData_inizio() {
 		return data_inizio;
 	}

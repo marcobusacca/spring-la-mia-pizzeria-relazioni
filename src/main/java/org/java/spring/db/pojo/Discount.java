@@ -19,8 +19,7 @@ public class Discount {
 	private LocalDate data_inizio;
 	
 	private LocalDate data_fine;
-	
-	@Column(length = 20)
+
 	private String titolo;
 	
 	@ManyToOne

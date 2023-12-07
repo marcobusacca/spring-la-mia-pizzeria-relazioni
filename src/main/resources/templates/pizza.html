@@ -19,11 +19,19 @@
 						<div class="col-12 text-center my-3">
 							<img th:src="${pizza.getUrl_foto()}">
 						</div>
-						<div class="col-12 text-center my-3">
+						<div class="col-12 text-center my-5">
 							<h3 th:text="${pizza.getNome()} + ' - ' + ${pizza.getPrezzoFormattato()}"></h3>
 							<p th:text="${pizza.getDescrizione()}" class="py-3"></p>
 						</div>
-						<div class="col-12 text-center my-3">
+						<div class="col-12 my-5">
+							<h5 th:if="${discounts.isEmpty()}" class="text-center">Nessuna offerta speciale</h5>
+							<ul th:if="${!discounts.isEmpty()}">
+								<li th:each="discount : ${discounts}">
+									<a href="/" th:text="${discount.getTitolo()}"></a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-12 text-center my-5">
 							<a th:href="@{/pizzas/{pizzaId}/discount (pizzaId=${pizza.getId()})}" class="btn btn-success">Crea un'offerta speciale</a>
 						</div>
 					</div>
