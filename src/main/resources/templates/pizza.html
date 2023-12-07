@@ -25,14 +25,31 @@
 						</div>
 						<div class="col-12 my-5">
 							<h5 th:if="${discounts.isEmpty()}" class="text-center">Nessuna offerta speciale</h5>
-							<ul th:if="${!discounts.isEmpty()}">
-								<li th:each="discount : ${discounts}">
-									<a href="/" th:text="${discount.getTitolo()}"></a>
-								</li>
-							</ul>
+							<table class="table" th:if="${!discounts.isEmpty()}">
+							  <thead>
+							    <tr>
+							      <th scope="col">Titolo</th>
+							      <th scope="col">Inizio</th>
+							      <th scope="col">Fine</th>
+							      <th scope="col">Strumenti</th>
+							    </tr>
+							  </thead>
+							  <tbody>
+							    <tr th:each="discount : ${discounts}">
+							      <td th:text="${discount.getTitolo()}"></td>
+							      <td th:text="${discount.getData_inizio()}"></td>
+							      <td th:text="${discount.getData_fine()}"></td>
+							      <td>
+								  	<a th:href="@{/pizzas/{pizzaId}/discount/edit/{discountId} (pizzaId=${pizza.getId()}, discountId=${discount.getId()})}" class="btn btn-warning">
+										<i class="fas fa-edit"></i>
+									</a>
+								  </td>
+							    </tr>
+							  </tbody>
+							</table>
 						</div>
 						<div class="col-12 text-center my-5">
-							<a th:href="@{/pizzas/{pizzaId}/discount (pizzaId=${pizza.getId()})}" class="btn btn-success">Crea un'offerta speciale</a>
+							<a th:href="@{/pizzas/{pizzaId}/discount/create (pizzaId=${pizza.getId()})}" class="btn btn-success">Crea un'offerta speciale</a>
 						</div>
 					</div>
 				</div>

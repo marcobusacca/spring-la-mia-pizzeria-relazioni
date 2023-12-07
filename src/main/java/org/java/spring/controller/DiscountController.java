@@ -22,7 +22,7 @@ public class DiscountController {
 	@Autowired
 	private DiscountService discountService;
 	
-	@GetMapping("/pizzas/{id}/discount")
+	@GetMapping("/pizzas/{id}/discount/create")
 	public String createDiscount(Model model, @PathVariable int id) {
 		
 		Pizza pizza = pizzaService.findById(id);
@@ -35,13 +35,36 @@ public class DiscountController {
 		
 		return "discount-form";
 	}
-	
-	@PostMapping("/pizzas/{id}/discount")
+	@PostMapping("/pizzas/{id}/discount/create")
 	public String storeDiscount(@ModelAttribute DiscountDTO discountDTO, @PathVariable int id) {
 		
 		Pizza pizza = pizzaService.findById(id);
 		
 		Discount discount = new Discount(discountDTO.getData_inizio(), discountDTO.getData_fine(), discountDTO.getTitolo(), pizza);
+		
+		discountService.save(discount);
+		
+		return "redirect:/";
+	}
+	
+	@GetMapping("/pizzas/{pizzaId}/discount/edit/{discountId}")
+	public String editDiscount(Model model, @PathVariable int pizzaId, @PathVariable int discountId) {
+		
+		Discount discount = discountService.findById(discountId);
+		
+		model.addAttribute("discount", discount);
+		
+		return "discount-form";
+	}
+	
+	@PostMapping("/pizzas/{pizzaId}/discount/edit/{discountId}")
+	public String updateDiscount(@ModelAttribute DiscountDTO discountDTO, @PathVariable int pizzaId, @PathVariable int discountId) {
+		
+		Discount discount = discountService.findById(discountId);
+		
+		discount.setData_inizio(discountDTO.getData_inizio());
+		discount.setData_fine(discountDTO.getData_fine());
+		discount.setTitolo(discountDTO.getTitolo());
 		
 		discountService.save(discount);
 		
