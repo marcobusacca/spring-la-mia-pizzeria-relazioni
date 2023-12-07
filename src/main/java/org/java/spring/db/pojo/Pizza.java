@@ -80,6 +80,12 @@ public class Pizza {
 	public void setPrezzo(double prezzo) {
 		this.prezzo = prezzo;
 	}
+	public List<Discount> getDiscounts() {
+		return discounts;
+	}
+	public void setDiscounts(List<Discount> discounts) {
+		this.discounts = discounts;
+	}
 	
 	public String getPrezzoFormattato() {
 		return String.format("%.2f", getPrezzo()) + "€";

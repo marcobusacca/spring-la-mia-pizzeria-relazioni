@@ -58,6 +58,12 @@ public class Discount {
 	public void setTitolo(String titolo) {
 		this.titolo = titolo;
 	}
+	public Pizza getPizza() {
+		return pizza;
+	}
+	public void setPizza(Pizza pizza) {
+		this.pizza = pizza;
+	}
 	
 	
 	@Override
