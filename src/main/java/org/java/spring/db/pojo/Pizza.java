@@ -77,4 +77,12 @@ public class Pizza {
 	public String getPrezzoFormattato() {
 		return String.format("%.2f", getPrezzo()) + "€";
 	}
+	
+	
+	@Override
+	public String toString() {
+		
+		return "[" + getId() + "] " + getNome() + " - " 
+				+ getPrezzo();
+	}
 }
