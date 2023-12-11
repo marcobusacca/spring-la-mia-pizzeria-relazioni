@@ -73,6 +73,6 @@ public class IngredientController {
 		
 		ingredientService.save(ingredient);
 		
-		return "redirect:/";
+		return "redirect:/ingredients";
 	}
 }
