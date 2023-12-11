@@ -39,6 +39,12 @@
 										<input th:field="*{prezzo}" type="number" step="0.01" name="prezzo" id="prezzo" placeholder="Inserisci il prezzo" class="form-control" th:errorClass="is-invalid" required>
 										<div th:replace="frags :: errorDiv('prezzo')"></div>
 									</div>
+									<div class="form-group d-flex flex-wrap my-5">
+			                             <div class="col-12" th:each="ingredient : ${ingredients}" th:object="${ingredient}">                                 
+			                                <label th:for="${'ingredient-' + ingredient.id}" th:text="${ingredient.getNome()}" class="control-label mb-2"></label>
+			                                <input type="checkbox" class="ms-3" th:id="${'ingredient-' + ingredient.id}" th:field="${pizza.ingredients}" th:value="*{id}">
+			                             </div>
+			                         </div>
 									<div class="col-12 text-center">
 										<button type="submit" class="btn btn-primary px-5">Invia</button>
 									</div>

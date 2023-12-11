@@ -23,6 +23,12 @@
 							<h3 th:text="${pizza.getNome()} + ' - ' + ${pizza.getPrezzoFormattato()}"></h3>
 							<p th:text="${pizza.getDescrizione()}" class="py-3"></p>
 						</div>
+						<div th:if="${!pizza.ingredients.isEmpty()}" class="col-12 text-center my-5">
+							<h3>Ingredienti</h3>
+							<ul class="list-unstyled my-3">
+								<li th:each="ingredient : ${pizza.ingredients}" th:text="${ingredient.getNome()}" class="py-2"></li>
+							</ul>
+						</div>
 						<div class="col-12 my-5">
 							<h5 th:if="${discounts.isEmpty()}" class="text-center">Nessuna offerta speciale</h5>
 							<table class="table" th:if="${!discounts.isEmpty()}">
