@@ -53,6 +53,7 @@ public class Pizza {
 		setDescrizione(descrizione);
 		setUrl_foto(urlFoto);
 		setPrezzo(prezzo);
+		setIngredients(ingredients);
 	}
 	
 	public int getId() {
