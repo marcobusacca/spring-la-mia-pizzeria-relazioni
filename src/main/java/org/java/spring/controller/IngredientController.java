@@ -14,4 +14,14 @@ public class IngredientController {
 
 	@Autowired
 	private IngredientService ingredientService;
+	
+	@GetMapping
+	public String getIngredients(Model model) {
+		
+		List<Ingredient> ingredients = ingredientService.findAll();
+		
+		model.addAttribute("ingredients", ingredients);
+		
+		return "ingredients";
+	}
 }
