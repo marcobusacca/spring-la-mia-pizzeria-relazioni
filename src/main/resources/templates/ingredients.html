@@ -15,7 +15,8 @@
 			<main>
 				<div class="container-fluid">
 					<div class="row justify-content-center p-5">
-						<div class="col-12 text-center my-5">
+						<div th:replace="frags :: homebutton"></div>
+						<div class="col-12 text-center my-3">
 							<span th:if="${ingredients.isEmpty()}">Nessun ingrediente trovato</span>
 							<table class="table" th:if="${!ingredients.isEmpty()}">
 							  <thead>
@@ -30,7 +31,11 @@
 							      <td th:text="${ingredient.getId()}"></td>
 							      <td th:text="${ingredient.getNome()}"></td>
 							      <td>
-									// DELETE
+									<form style="display:inline-block" th:action="@{/ingredients/delete/{ingredientId} (ingredientId=${ingredient.getId()})}" method="POST" onsubmit="return confirm('Sei sicuro?')">
+										<button type="submit" class="btn btn-danger">
+											<i class="fas fa-trash"></i>
+										</button>
+									</form>
 								  </td>
 							    </tr>
 							  </tbody>
