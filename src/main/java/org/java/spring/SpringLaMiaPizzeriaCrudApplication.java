@@ -1,6 +1,8 @@
 package org.java.spring;
 
+import org.java.spring.db.pojo.Ingredient;
 import org.java.spring.db.pojo.Pizza;
+import org.java.spring.db.serv.IngredientService;
 import org.java.spring.db.serv.PizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,6 +14,9 @@ public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner {
 	
 	@Autowired
 	private PizzaService pizzaService;
+	
+	@Autowired
+	private IngredientService ingredientService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringLaMiaPizzeriaCrudApplication.class, args);
@@ -25,5 +30,16 @@ public class SpringLaMiaPizzeriaCrudApplication implements CommandLineRunner {
 		pizzaService.save(new Pizza("Quattro Stagioni", "Descrizione 4", "https://picsum.photos/500/200", 12.9));
 		pizzaService.save(new Pizza("Capricciosa", "Descrizione 5", "https://picsum.photos/500/200", 13.1));
 		pizzaService.save(new Pizza("Quattro Formaggi", "Descrizione 6", "https://picsum.photos/500/200", 15.50));
+		
+		ingredientService.save(new Ingredient("ingrediente-1"));
+		ingredientService.save(new Ingredient("ingrediente-2"));
+		ingredientService.save(new Ingredient("ingrediente-3"));
+		ingredientService.save(new Ingredient("ingrediente-4"));
+		ingredientService.save(new Ingredient("ingrediente-5"));
+		ingredientService.save(new Ingredient("ingrediente-6"));
+		ingredientService.save(new Ingredient("ingrediente-7"));
+		ingredientService.save(new Ingredient("ingrediente-8"));
+		ingredientService.save(new Ingredient("ingrediente-9"));
+		ingredientService.save(new Ingredient("ingrediente-10"));
 	}
 }
