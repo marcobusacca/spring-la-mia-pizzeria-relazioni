@@ -1,9 +1,12 @@
 package org.java.spring.db.pojo;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Ingredient {
@@ -13,6 +16,9 @@ public class Ingredient {
 	private int id;
 	
 	private String nome;
+	
+	@ManyToMany(mappedBy = "ingredients")
+	private List<Pizza> pizzas;
 	
 	public Ingredient() {}
 	public Ingredient(String nome) {
@@ -30,5 +36,12 @@ public class Ingredient {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public List<Pizza> getPizzas() {
+		return pizzas;
+	}
+	public void setPizzas(List<Pizza> pizzas) {
+		this.pizzas = pizzas;
 	}
 }
