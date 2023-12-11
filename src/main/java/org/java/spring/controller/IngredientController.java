@@ -54,7 +54,7 @@ public class IngredientController {
 		
 		System.out.println(ingredient);
 		
-		return "redirect:/";
+		return "redirect:/ingredients";
 	}
 	
 	private String saveIngredient(Model model, @Valid @ModelAttribute Ingredient ingredient, BindingResult bindingResult) {
