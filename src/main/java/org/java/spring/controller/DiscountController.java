@@ -56,7 +56,6 @@ public class DiscountController {
 		
 		return "discount-form";
 	}
-	
 	@PostMapping("/pizzas/{pizzaId}/discount/edit/{discountId}")
 	public String updateDiscount(@ModelAttribute DiscountDTO discountDTO, @PathVariable int pizzaId, @PathVariable int discountId) {
 		
