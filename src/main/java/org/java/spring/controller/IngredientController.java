@@ -15,7 +15,7 @@ public class IngredientController {
 	@Autowired
 	private IngredientService ingredientService;
 	
-	@GetMapping
+	@GetMapping("/ingredients")
 	public String getIngredients(Model model) {
 		
 		List<Ingredient> ingredients = ingredientService.findAll();
