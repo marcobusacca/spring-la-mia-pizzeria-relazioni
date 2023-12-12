@@ -3,7 +3,9 @@ package org.java.spring.controller;
 import java.util.List;
 
 import org.java.spring.db.pojo.Ingredient;
+import org.java.spring.db.pojo.Pizza;
 import org.java.spring.db.serv.IngredientService;
+import org.java.spring.db.serv.PizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,9 @@ public class IngredientController {
 
 	@Autowired
 	private IngredientService ingredientService;
+	
+	@Autowired
+	private PizzaService pizzaService;
 	
 	@GetMapping("/ingredients")
 	public String getIngredients(Model model) {
@@ -50,6 +55,15 @@ public class IngredientController {
 	public String deleteIngredient(@PathVariable int id) {
 		
 		Ingredient ingredient = ingredientService.findById(id);
+		
+		// RIMOZIONE RELAZIONI TRA L'INGREDIENTE E LE PIZZE
+		List<Pizza> ingredientPizzas = ingredient.getPizzas();
+		
+		ingredientPizzas.forEach(pizza -> {
+			pizza.getIngredients().remove(ingredient);
+			pizzaService.save(pizza);
+		});
+		
 		ingredientService.delete(ingredient);
 		
 		System.out.println(ingredient);
